@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import Badge from '../components/Badge.astro';
+import SectionContainer from '../components/SectionContainer.astro';
+import LinkedInIco from '../components/icons/LinkedInIco.astro'
+import GitHubIco from '../components/icons/GitHubIco.astro'
+import GmailIco from '../components/icons/GmailIco.astro'
+import SocialPill from '../components/SocialPill.astro'
+import Experience from '../components/Experience.astro';
+import Briefcase from '../components/icons/Briefcase.astro';
+import CodeIco from '../components/icons/CodeIco.astro';
+import Projects from '../components/Projects.astro';
+---
+
+<Layout 
+title="Portfolio de Catriel Gatto - Desarrollador y Programador Web"
+description="Contrata a Catriel Gatto para desarrollo de programas, páginas web o todo tipo de aplicaciones">
+	<main class="px-4">
+		<SectionContainer class="py-44 pb-24">
+		<img 
+			class="rounded-full size-12 mb-4"
+			src ="https://avatars.githubusercontent.com/u/130781541?v=4" 
+			alt ="catriel photo" 
+		/>
+		<h1 
+		class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-row gap-x-4 pb-6 lg:pb-10">
+			Hola, mi nombre es Catriel. <a 
+				href="https://www.linkedin.com/in/catriel-gatto/" 
+				target="_blank" 
+				rel="noopener"
+				class="flex justify-center items-center"><Badge>Disponible para trabajar</Badge></a></h1>
+		<h2 class="text-xl lg:text-3xl text-wrap max-w-[700px]">
+			<span class="text-[#fca311]">Desarrollador y Profesor de Informática. </span>
+			<span class="opacity-80">Estudiante de Tecnicatura en Programación de la UTN.</span>
+			<span class="text-[#12BAFD] opacity-80">De Buenos Aires, Argentina. </span>
+		</h2>
+
+		<nav class="flex gap-2 mt-6 flex-wrap">
+				<SocialPill href="https://www.linkedin.com/in/catriel-gatto/">
+					<LinkedInIco class ="size-4 md:size-6"/>
+					LinkedIn
+				</SocialPill>
+
+				<SocialPill href="https://github.com/seek-coder">
+					<GitHubIco class ="size-4 md:size-6"/>
+					GitHub
+				</SocialPill>
+
+				<SocialPill href="mailto:catrielgatto99@gmail.com">
+					<GmailIco class ="size-4 md:size-6"/>
+					catrielgatto99@gmail.com
+				</SocialPill>
+		</nav>
+	</SectionContainer>
+
+	<SectionContainer id="experiencia">
+		<h2 class="text-3xl font-semibold mb-6 flex gap-x-2 items-center">
+			<Briefcase class="size-7" />
+			Experiencia laboral
+		</h2>
+		<Experience />
+	</SectionContainer>
+
+	<SectionContainer id="proyectos">
+		<h2 class="text-3xl font-semibold mb-6 flex gap-x-2 items-center">
+			<CodeIco class="size-7" />
+			Proyectos
+		</h2>
+		<Projects/>
+	</SectionContainer>
+	</main>
+</Layout>

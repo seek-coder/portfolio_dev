@@ -1,0 +1,69 @@
+---
+import CplusplusIco from "../components/icons/CplusplusIco.astro"
+import PythonIco from "../components/icons/PythonIco.astro"
+import CsharpIco from "../components/icons/CsharpIco.astro"
+
+const TAGS = {
+    CPLUSPLUS: {
+    name: "C++",
+    class: "bg-black/70 text-white",
+    icon: CplusplusIco,
+    },
+    PYTHON: {
+    name: "Python",
+    class: "bg-black/70 text-white",
+    icon: PythonIco,
+    },
+    CSHARP: {
+    name: "C#",
+    class: "bg-black/70 text-white",
+    icon: CsharpIco,
+    },
+}
+
+const PROJECTS = [
+{
+        title: "RestoApp - Aplicación de gestión de restaurantes",
+        description: "aplicación de escritorio desarrollada en C# que ofrece una solución integral para la gestión de un restaurante. Diseñada para ser fácil de usar y proporcionar una experiencia fluida tanto para los empleados como para los clientes. Utiliza una interfaz gráfica intuitiva que permite navegar sin esfuerzo por las diferentes funciones y características de la aplicación.",
+        github: "https://github.com/seek-coder/RestoApp-labo2-gatto-catriel",
+        image: "/projects/project_3.webp",
+        tags: [TAGS.CSHARP],
+    },
+    {
+        title: "My Friend Capybara - Juego Arcade",
+        description: "Videojuego creado desde cero con PyGame, enormemente influenciado por el Dinosaur Game de Google. Todos los recursos del juego son de mi autoría: Sprites (hechos es Asesprite), Música y sonidos (hechos en FL Studio) y agregados visuales diversos (hechos en Photoshop)",
+        github: "https://github.com/seek-coder/PROG1-Primer-parcial",
+        image: "/projects/project_2.webp",
+        tags: [TAGS.PYTHON],
+    },
+    {
+        title: "Contador multi-función en Arduino",
+        description: "Contador de 0 a 99 con Display 7 Segmentos y Multiplexación. Interruptor deslizante, selección de numeros primos, sensor de temperatura, motor de aficionado, fotorresistencia y función de apagado-encendido",
+        github: "https://github.com/seek-coder/SPD-Primer-Parcial",
+        image: "/projects/project_1.webp",
+        tags: [TAGS.CPLUSPLUS]
+    }
+]
+---
+
+{
+    PROJECTS.map(({ image, title, description, tags}) => (
+        <article>
+            <h3 class="text-2xl font-semibold text-[#fca311] mb-2">{title}</h3>
+            <p class="text-lg mb-4 text-pretty">{description}</p>
+            <ul class="flex gap-x-2 flex-row mb-2">
+                {tags.map((tag) => (
+                    <li>
+                        <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
+                            <tag.icon class="size-4"/>
+                            {tag.name}                                              
+                        </span>
+                    </li>
+                ))}
+            </ul>
+            <img
+            class="rounded shadow-2xl shadow-white/20" 
+            src={image} alt={`Captura de pantalla de proyecto ${image}`} />
+        </article>
+    ))
+}

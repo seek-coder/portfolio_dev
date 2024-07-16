@@ -1,0 +1,42 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+
+const EXPERIENCE =[
+    {
+        date: "Actualmente",
+        title: "Profesor de informática en nivel secundario - Instituto Ntra. Señora del Cármen",
+        description:
+        "Clases formales en nivel secundario para institución educativa de gestión privada en Lomas de Zamora, Buenos Aires",
+        link: "https://www.inscarmen.edu.ar/"
+    },
+    {
+        date: "Actualmente",
+        title: "Profesor de informática en nivel primario - Colegio San Gabriel",
+        description:
+        "Clases formales en nivel primario para institución educativa de gestión privada en Claypole, Buenos Aires",
+    },
+    {
+        date: "2024",
+        title: "Ayudante de cátedra - Universidad Tecnológica Nacional",
+        description:
+        "Ayudantía en nivel universitario para la UTN Regional Avellaneda",
+        link: "https://fra.utn.edu.ar/"
+    },
+    {
+        date: "2022 - 2024",
+        title: "Profesor de Lógica Proposicional y Teoría de la Argumentación - Freelance",
+        description:
+        "Clases particulares para todos los niveles de Lógica Proposicional y Teoría de la Argumentación a partir de mis estudios realizados en el Profesorado de Filosofía con Trayecto en Ética y Ciudadanía",
+    }
+]
+---
+<ol class="relative border-s border-gray-200 ml-3">       
+    {
+        EXPERIENCE.map(experience => (
+        <li class="mb-10 ms-4">
+            <ExperienceItem {...experience} />
+        </li>
+        ))
+    }           
+</ol>
+
