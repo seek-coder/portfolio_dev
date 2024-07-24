@@ -2,56 +2,101 @@
 import CplusplusIco from "../components/icons/CplusplusIco.astro"
 import PythonIco from "../components/icons/PythonIco.astro"
 import CsharpIco from "../components/icons/CsharpIco.astro"
+import GoToIco from "../components/icons/GoToIco.astro"
+import DjangoIco from "../components/icons/DjangoIco.astro"
+import TailwindIco from "../components/icons/TailwindIco.astro"
+import SqliteIco from "../components/icons/SqliteIco.astro"
 
 const TAGS = {
     CPLUSPLUS: {
     name: "C++",
     class: "bg-black/70 text-white",
-    icon: CplusplusIco,
+    icon: CplusplusIco
     },
     PYTHON: {
     name: "Python",
     class: "bg-black/70 text-white",
-    icon: PythonIco,
+    icon: PythonIco
     },
     CSHARP: {
     name: "C#",
     class: "bg-black/70 text-white",
-    icon: CsharpIco,
+    icon: CsharpIco
     },
+    DJANGO: {
+    name: "Django",
+    class: "bg-black/70 text-white",
+    icon: DjangoIco
+    },
+    TAILWIND: {
+    name: "Tailwnd",
+    class: "bg-black/70 text-white",
+    icon: TailwindIco
+    },
+    SQLITE: {
+    name: "SQLite",
+    class: "bg-black/70 text-white",
+    icon: SqliteIco
+    }
 }
 
 const PROJECTS = [
 {
-        title: "RestoApp - Aplicación de gestión de restaurantes",
-        description: "Aplicación de escritorio desarrollada en C# que ofrece una solución integral para la gestión de un restaurante. Diseñada para ser fácil de usar y proporcionar una experiencia fluida tanto para los empleados como para los clientes. Utiliza una interfaz gráfica intuitiva que permite navegar sin esfuerzo por las diferentes funciones y características de la aplicación.",
+        title: "LOL STATS GRAPH",
+        subtitle: "Web-App con Api request para info. de jugadores de League Of Legends",
+        github: "https://github.com/seek-coder/LOL-Stats",
+        image: "/projects/project_4.webp",
+        tags: [TAGS.PYTHON, TAGS.DJANGO, TAGS.TAILWIND],
+        link: "https://github.com/seek-coder/LOL-Stats"
+    },
+    {
+        title: "RESTO APP",
+        subtitle: "Aplicación de gestión de restaurantes",
         github: "https://github.com/seek-coder/RestoApp-labo2-gatto-catriel",
         image: "/projects/project_3.webp",
         tags: [TAGS.CSHARP],
+        link: "https://github.com/seek-coder/RestoApp-labo2-gatto-catriel"
     },
     {
-        title: "My Friend Capybara - Juego Arcade",
-        description: "Videojuego creado desde cero con PyGame, enormemente influenciado por el Dinosaur Game de Google. Todos los recursos del juego son de mi autoría: Sprites (hechos es Asesprite), Música y sonidos (hechos en FL Studio) y agregados visuales diversos (hechos en Photoshop)",
+        title: "WHERE ARE MY CHICKENS?",
+        subtitle: "Juego Arcade con base de datos",
+        github: "https://github.com/seek-coder/PROG1-Sdo-parcial",
+        image: "/projects/project_5.webp",
+        tags: [TAGS.PYTHON, TAGS.SQLITE],
+        link: "https://github.com/seek-coder/PROG1-Sdo-parcial"
+    },
+    {
+        title: "MY FRIEND CAPYBARA",
+        subtitle: "Juego Arcade",
         github: "https://github.com/seek-coder/PROG1-Primer-parcial",
         image: "/projects/project_2.webp",
         tags: [TAGS.PYTHON],
+        link: "https://github.com/seek-coder/PROG1-Primer-parcial"
     },
     {
-        title: "Contador multi-función en Arduino",
-        description: "Contador de 0 a 99 con Display 7 Segmentos y Multiplexación. Interruptor deslizante, selección de numeros primos, sensor de temperatura, motor de aficionado, fotorresistencia y función de apagado-encendido",
+        title: "CONTADOR MULTI-FUNCIÓN",
+        subtitle: "Proyecto en Arduino",
         github: "https://github.com/seek-coder/SPD-Primer-Parcial",
         image: "/projects/project_1.webp",
-        tags: [TAGS.CPLUSPLUS]
+        tags: [TAGS.CPLUSPLUS],
+        link:"https://github.com/seek-coder/SPD-Primer-Parcial"
     }
 ]
 ---
 
 {
-    PROJECTS.map(({ image, title, description, tags}) => (
-        <article>
-            <h3 class="text-2xl font-semibold text-[#fca311] mb-2">{title}</h3>
-            <p class="text-lg mb-4 text-pretty">{description}</p>
-            <ul class="flex gap-x-2 flex-row mb-2">
+    PROJECTS.map(({ image, title, subtitle, tags, link}) => (
+        <a href={`${link}`} class="grid md:grid-cols-2 hover:bg-[#32323d] border-2 border-transparent hover:transition-colors mt-6 hover:rounded-lg hover:border-white hover:border-opacity-60 hover:border-y-2 hover:border-r-2 ">
+            <img
+            class="rounded shadow-2xl shadow-white/20" 
+            src={image} alt={`Captura de pantalla de proyecto ${image}`} /> 
+            <div class="px-4 pt-5">
+                <div class="flex items-center">
+                <h3 class="md:text-2xl font-semibold text-[#fca311] mb-2">{title}</h3>
+                <GoToIco class="size-5 text-xl ml-2 mb-2 text-white opacity-90"/>
+                </div>
+                <h4 class="md:text-xl text-[#fca311] mb-2 opacity-80">{subtitle}</h4>
+                <ul class="flex gap-x-2 flex-row mb-2">
                 {tags.map((tag) => (
                     <li>
                         <span class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2`}>
@@ -61,9 +106,7 @@ const PROJECTS = [
                     </li>
                 ))}
             </ul>
-            <img
-            class="rounded shadow-2xl shadow-white/20 mb-16" 
-            src={image} alt={`Captura de pantalla de proyecto ${image}`} />
-        </article>
+            </div>
+        </a>
     ))
 }
